@@ -1382,6 +1382,7 @@ document.addEventListener("input", function (e) {
 });
 let buildurl
 document.getElementById("buildBtn").onclick = async () => {
+ 
   const portfolioData = JSON.parse(
     sessionStorage.getItem("portfolioData")
   );
@@ -1396,12 +1397,14 @@ document.getElementById("buildBtn").onclick = async () => {
 
   const data = await res.json();
 
-  const fullUrl = `${window.location.origin}${data.path}`;
-  buildurl = fullUrl
-  navigator.clipboard.writeText(fullUrl);
-
-  console.log(fullUrl);
-  openAlert();
+  // alert("Build link copied!");
+  let later = 'https://framecv.onrender.com/'
+  later = data.url
+  buildurl = data.url
+  // console.log(later)
+  console.log(data.url)
+  navigator.clipboard.writeText(data.url);
+  openAlert()
 };
 
 
