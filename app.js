@@ -50,7 +50,7 @@ app.use(cookieParser())
 const MongoStore = require("connect-mongo");
 
 app.use(session({
-  secret: "framecv-secret",
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
@@ -58,6 +58,7 @@ app.use(session({
     collectionName: "sessions"
   }),
   cookie: {
+    secure: process.env.NODE_ENV === "production",
     maxAge: 1000 * 60 * 60 * 24 // 1 day
   }
 }));
