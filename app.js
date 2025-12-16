@@ -47,6 +47,20 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,'public')))
 app.use(cookieParser())
+const MongoStore = require("connect-mongo");
+
+app.use(session({
+  secret: "framecv-secret",
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URI,
+    collectionName: "sessions"
+  }),
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 // 1 day
+  }
+}));
 
 
 app.get('/',(req,res)=>{
@@ -283,7 +297,8 @@ app.get("/build/:id", async (req, res) => {
 
 
 
+const PORT = process.env.PORT || 3000;
 
-app.listen(3000,()=>{
-    console.log('running');
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
