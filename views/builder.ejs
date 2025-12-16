@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Portfolio Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901,1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="\stylesheets\builder.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+
+<div class="top-bar">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <button class="btn"><i class="fa-solid fa-angle-left"></i></button>
+
+    <div class="mode-toggle">
+      <div class="mode-btn active" onclick="setMode('editor', this)">Editor</div>
+      <div class="mode-btn" onclick="setMode('preview', this)">Preview</div>
+    </div>
+  </div>
+
+  <div style="display:flex; align-items:center; gap:12px;">
+    <div class="device-toggle">
+      <div class="dev-btn active" onclick="setDevice('desktop', this)">Desktop</div>
+      <div class="dev-btn" onclick="setDevice('mobile', this)">Mobile</div>
+    </div>
+
+    <button class="btn" id="buildBtn">Publish</button>
+  </div>
+</div>
+
+
+<div class="main">
+
+ 
+  <div class="sidebar" id="sidebar">
+    <div class="tab-icon active" data-section="personal" onclick="openSection('personal', this)">
+        <i class="bi bi-person"></i>
+    </div>
+    <div class="tab-icon" data-section="skills" onclick="openSection('skills', this)">
+        <i class="fa-solid fa-brain"></i>
+    </div>
+    <div class="tab-icon" data-section="projects" onclick="openSection('projects', this)">
+        <i class="bi bi-folder2-open"></i>
+    </div>
+    <div class="tab-icon" data-section="experience" onclick="openSection('experience', this)">
+        <i class="bi bi-briefcase"></i>
+    </div>
+    <div class="tab-icon" data-section="education" onclick="openSection('education', this)">
+        <i class="bi bi-mortarboard"></i>
+    </div>
+    <div class="tab-icon" data-section="achievements" onclick="openSection('achievements', this)">
+        <i class="bi bi-award"></i>
+    </div>
+    <div class="tab-icon" data-section="contact" onclick="openSection('contact', this)">
+        <i class="bi bi-envelope"></i>
+    </div>
+    <!-- <div style="flex:1"></div> -->
+    <div class="tab-icon" data-section="settings" onclick="openSection('settings', this)">
+        <i class="bi bi-gear"></i>
+    </div>
+  </div>
+
+
+  <aside class="editor" id="editorPanel">
+    <div class="section" id="sec-personal">
+    
+      
+      <h3>Personal Info</h3>
+     
+      <div class="form-row" style="margin-top: 10px;"><label>Full Name</label><input type="text" id="personalInfoName"></div>
+      <div class="form-row" style="margin-top: 10px;"><label>Title</label><input type="text" id="personalInfoTitle"></div>
+      <div class="form-row" style="margin-top: 10px;" ><label>Location</label><input type="text" id="personalInfoLocation"></div>
+      <div class="form-row" style="margin-top: 10px;" ><label>Summary</label><textarea id="personalInfoSummary"></textarea></div>
+      <div class="form-row" style="margin-top: 10px;"><label>Image URL</label><input type="text" id="personalInfoURL"></div>
+      <hr>
+      <div class="form-row" style="margin-top: 20px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label>Call to Action Buttons</label>
+        <button class="add-btn" id="addCtaBtn"><i class="bi bi-plus-lg"></i> Add</button>
+    </div>
+    <div id="ctaContainer"></div>
+      <!-- <div class="ctabtn">
+            <div style="padding-top: 15px;">Button1</div>
+            <div class="cta-row-acc">
+                <div class="cta-row">
+                    <label>Button text</label>
+                    <input type="text">
+                </div>
+
+                <div class="cta-row">
+                    <label>URL</label>
+                    <input type="text">
+                </div>
+            </div>
+       </div> -->
+       <!-- <div class="ctabtn">
+            <div style="padding-top: 15px;">Button2</div>
+
+            <div class="cta-row-acc">
+                <div class="cta-row">
+                    <label>Button text</label>
+                    <input type="text">
+                </div>
+
+                <div class="cta-row">
+                    <label>URL</label>
+                    <input type="text">
+                </div>
+            </div>
+       </div> -->
+
+      
+    </div>
+
+    <div class="section" id="sec-skills" style="display:none">
+      <h3>Skills</h3>
+      <div class="form-row"><label>Section Title</label><input type="text" id="skillsTitle" value="Technical Skills"></div>
+      <hr>
+      <div class="form-row" style="margin-top: 20px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label>Skills List</label>
+        <button class="add-btn" id="skillsaddbtn" ><i class="bi bi-plus-lg"></i> Add</button>
+      </div>
+
+      
+    </div>
+
+    <div class="section" id="sec-projects" style="display:none">
+      <h3>Projects</h3>
+      <div class="form-row"><label>Section Title</label><input type="text" id="projectTitle" value="Featured Projects"></div>
+      <hr>
+      <div class="form-row" style="margin-top: 20px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 1.3rem;">Projects</label>
+        <button class="add-btn" id="projectsaddbtn" onclick="addProject()"><i class="bi bi-plus-lg"></i> Add</button>
+      </div>
+    </div>
+
+    <div class="section" id="sec-experience" style="display:none">
+      <h3>Experience</h3>
+      <div class="form-row"><label>Section Title</label><input id="experienceTitle" type="text" value="Work Experience"></div>
+      <hr>
+      <div class="form-row" style="margin-top: 20px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;">Experience items</label>
+        <button class="add-btn" id="experienceaddbtn" onclick="addExperience()"><i class="bi bi-plus-lg"></i> Add</button>
+      </div>
+    </div>
+
+    <div class="section" id="sec-education" style="display:none">
+      <h3>Education</h3>
+      <div class="form-row"><label>Section Title</label><input id="educationTitle" type="text" value="Education"></div>
+      <hr>
+      <div class="form-row" style="margin-top: 20px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;">Education items</label>
+        <button class="add-btn" id="educationaddbtn" onclick="addEducation()"><i class="bi bi-plus-lg"></i> Add</button>
+      </div>
+    </div>
+
+    <div class="section" id="sec-achievements" style="display:none">
+      <h3>Achievements</h3>
+      <div class="form-row"><label>Section Title</label><input id="achievementTitle" type="text" value="Achievements & Certifications"></div>
+      <hr>
+      <div class="form-row" style="margin-top: 20px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;">Achievement items</label>
+        <button class="add-btn" id="achievementaddbtn" onclick="addAchievement()"><i class="bi bi-plus-lg"></i> Add</button>
+      </div>
+      
+    </div>
+
+    <div class="section" id="sec-contact" style="display:none">
+      <h3>Contact</h3>
+      <div class="form-row" style="margin-top: 10px;"><label>Section Title</label><input id="contactTitle" type="text" value="Contact"></div>
+      <div class="form-row" style="margin-top: 10px;"><label>Email</label><input id="contactEmail" type="text"></div>
+      <div class="form-row" style="margin-top: 10px;"><label>Phone</label><input id="contactPhone" type="text"></div>
+      <div class="form-row" style="margin-top: 10px;"><label>Location</label><input id="contactLocation" type="text"></div>
+      <hr>
+      
+      <div class="form-row" style="margin-top: 20px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;">Social Links</label>
+        <button class="add-btn" id="socialaddbtn" onclick="addSocial()"><i class="bi bi-plus-lg"></i> Add</button>
+      </div>
+    </div>
+
+    <div class="section" id="sec-settings" style="display:none">
+      <h3>Settings</h3>
+      <hr>
+      <div class="form-row" style="margin-top: 20px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;">Sections Visibility</label>
+      </div>
+      <div class="form-row toggle-row" style="margin-top: 0px; margin-bottom: 0px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;" class="toggle-label" id="togglepersonalinfo">Personal Information</label>
+        <label class="toggle">
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-slider"></span>
+        </label>
+
+      </div>
+      <div class="form-row toggle-row" style="margin-top: 0px; margin-bottom: 0px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;" class="toggle-label" id="toggleskills">About & Skills</label>
+        <label class="toggle">
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-slider"></span>
+        </label>
+
+      </div>
+      <div class="form-row toggle-row" style="margin-top: 0px; margin-bottom: 0px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;" class="toggle-label" id="toggleexperience">Experience</label>
+        <label class="toggle">
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-slider"></span>
+        </label>
+
+      </div>
+      <div class="form-row toggle-row" style="margin-top: 0px; margin-bottom: 0px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;" class="toggle-label" id="toggleprojects">Projects</label>
+        <label class="toggle">
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-slider"></span>
+        </label>
+
+      </div>
+      <div class="form-row toggle-row" style="margin-top: 0px; margin-bottom: 0px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;" class="toggle-label" id="toggleeducation">Education</label>
+        <label class="toggle">
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-slider"></span>
+        </label>
+
+      </div>
+      <div class="form-row toggle-row" style="margin-top: 0px; margin-bottom: 0px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;" class="toggle-label" id="toggleachievement">Achievements</label>
+        <label class="toggle">
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-slider"></span>
+        </label>
+
+      </div>
+      <div class="form-row toggle-row" style="margin-top: 0px; margin-bottom: 0px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;" class="toggle-label" id="togglecontact">Contact</label>
+        <label class="toggle">
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-slider"></span>
+        </label>
+
+      </div>
+      <div class="form-row toggle-row" style="margin-top: 0px; margin-bottom: 0px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;" class="toggle-label" id="togglesocial">Social Links</label>
+        <label class="toggle">
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-slider"></span>
+        </label>
+
+      </div>
+
+
+      <hr>
+      <div class="form-row" style="margin-top: 20px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label style="font-size: 0.9rem;">Footer</label>
+      </div>
+      <div class="form-row"><label>Copyright Text</label><input id="footerCopyright" type="text" value="@Copyright reserved"></div>
+    </div>
+  </aside>
+
+  
+  <main class="preview-area" id="previewArea">
+    <iframe
+    id="previewFrame"
+    class="preview-frame"
+    sandbox="allow-scripts allow-same-origin"
+    scrolling="yes">
+    </iframe>
+
+  </main>
+
+</div>
+
+<div id="overlay" class="overlay hidden">
+  
+  <div class="alert-box">
+    <div>
+      <i style="color: #5ec269;  font-size: 3.5rem;" class="bi bi-check2-circle"></i>
+    </div>
+    <h2 style="margin: 0px;">Build Successful</h2>
+    <p style="margin: 0px; font-size: 0.85rem; color: rgb(212, 211, 211);">Your portfolio is now live. The public link has been copied to your clipboard for easy sharing.</p>
+
+    <div class="actions">
+      <button onclick="closeAlert()"><i class="bi bi-arrow-left-short"></i> Back to Builder</button>
+    </div>
+  </div>
+</div>
+<script>
+
+let saved = sessionStorage.getItem("portfolioData");
+
+const serverData = JSON.parse(`<%- JSON.stringify(data).replace(/</g, "\\u003c") %>`);
+if (!saved && serverData) {
+    
+    sessionStorage.setItem("portfolioData", JSON.stringify(serverData));
+}
+
+if (!saved && !serverData) {
+   
+    window.location.href = "/";
+}
+
+
+
+let currentMode = window.innerWidth <= 820 ? "preview" : "editor";
+
+let currentDevice = "desktop"; 
+
+const editorPanel = document.getElementById("editorPanel");
+const previewArea = document.getElementById("previewArea");
+const previewFrame = document.getElementById("previewFrame");
+const sidebar = document.getElementById("sidebar");
+
+function openSection(name, el){
+  document.querySelectorAll(".tab-icon").forEach(i=>i.classList.remove("active"));
+  el.classList.add("active");
+
+  document.querySelectorAll(".section").forEach(s=>s.style.display="none");
+  document.getElementById("sec-" + name).style.display = "block";
+}
+
+function setMode(mode, el){
+  currentMode = mode;
+  document.querySelectorAll(".mode-btn").forEach(b=>b.classList.remove("active"));
+  el.classList.add("active");
+  applyMode();
+}
+
+function setDevice(d, el){
+  currentDevice = d;
+  document.querySelectorAll(".dev-btn").forEach(b=>b.classList.remove("active"));
+  el.classList.add("active");
+  applyDevice();
+}
+
+function applyMode(){
+  const isMobile = window.innerWidth <= 820;
+
+  if(currentMode === "editor"){
+    if(isMobile){
+      sidebar.style.display = "flex";
+      editorPanel.style.display = "block";
+      previewArea.style.display = "none";
+    } else {
+      sidebar.style.display = "flex";
+      editorPanel.style.display = "block";
+      previewArea.style.display = "flex";
+    }
+
+   
+    document.querySelector(".device-toggle").style.display =
+      isMobile ? "none" : "flex";
+
+  } else {
+    
+    editorPanel.style.display = "none";
+    previewArea.style.display = "flex";
+
+    sidebar.style.display = "none";
+}
+
+  applyDevice();
+}
+
+function applyDevice(){
+  if(currentDevice === "desktop"){
+    previewFrame.style.width = "100%";
+    previewFrame.style.margin = "0";
+    previewFrame.style.borderRadius = window.innerWidth <= 820 ? "0" : "8px";
+  } else {
+    const w = Math.min(420, window.innerWidth - 40);
+    previewFrame.style.width = w + "px";
+    previewFrame.style.margin = "20px auto";
+    previewFrame.style.borderRadius = "18px";
+  }
+}
+
+window.addEventListener("resize", applyMode);
+
+previewFrame.src = "/preview";
+previewFrame.onload = () => {
+    console.log("Preview iframe loaded → sending initial data");
+    updatePreview();
+};
+function updatePreview() {
+    const frame = document.getElementById("previewFrame");
+    if (!frame || !frame.contentWindow) return;
+
+    const data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    
+    frame.contentWindow.postMessage(
+        { type: "render", payload: data },
+        "*"
+    );
+}
+function syncModeButtons() {
+  document.querySelectorAll(".mode-btn").forEach(b => b.classList.remove("active"));
+
+  if (currentMode === "editor") {
+    document.querySelector(".mode-btn:nth-child(1)").classList.add("active");
+  } else {
+    document.querySelector(".mode-btn:nth-child(2)").classList.add("active");
+  }
+}
+
+syncModeButtons();
+applyMode();
+window.addEventListener("resize", () => {
+  const shouldBePreview = window.innerWidth <= 820;
+
+  if (shouldBePreview && currentMode !== "preview") {
+    currentMode = "preview";
+    syncModeButtons();
+  }
+
+  if (!shouldBePreview && currentMode !== "editor") {
+    currentMode = "editor";
+    syncModeButtons();
+  }
+
+  applyMode();
+});
+
+let skillsaddbtn = document.querySelector('#skillsaddbtn');
+let skillscontainer = document.querySelector('#sec-skills')
+let totalskillscnt = 0
+skillsaddbtn.addEventListener('click',()=>{
+    const row = document.createElement("div");
+    row.className = "form-row";
+    row.style.display = "flex";
+    row.style.flexDirection = "row";
+    row.style.gap = "7px";
+    let s = 'skillNumber'+totalskillscnt
+    totalskillscnt++
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    row.innerHTML = `
+        <input id="${s}" type="text" value="New Skill">
+        <span class="remove-btn" style="padding: 10px; display: flex; justify-content: center; align-items: center; cursor: pointer; color: #dd524b; border-radius: 11px;">
+            <i class="bi bi-x-lg"></i>
+        </span>
+    `;
+    data.sections.about.skills.items.push('New Skill')
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+    
+    skillscontainer.appendChild(row);
+})
+document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".remove-btn");
+    if (!btn) return;
+
+    const row = btn.closest(".form-row");
+    const inputId = row.querySelector("input").id
+    let str = inputId; 
+    let text = str.replace(/\d+$/, "");
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    if(text == "skillNumber"){
+      
+      let number = Number(str.match(/\d+$/)[0]); 
+      data.sections.about.skills.items[number] = "Deleted"
+    }
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+    if (row) row.remove();
+});
+
+let projectcardcnt = 0
+function addProject() {
+    const container = document.getElementById("sec-projects");
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let projects = data.sections.projects.items
+    const index = projects.length;
+    projects.push({
+      title: "Project Title",
+      description: "Description of the functional and non-functional features of the project.",
+      previewUrl: "https://example.com/website",
+      repoUrl: "https://example.com/repo",
+      tags: ["Tag 1", "Tag 2", "Tag 3"]
+    })
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+
+
+    const card = document.createElement("div");
+    card.className = "project-card";
+    card.dataset.index = index;
+    card.innerHTML = `
+        <div class="project-header" style="padding-left:0;">
+            <span>Project Title</span>
+            <span class="delete-card"><i class="bi bi-trash"></i></span>
+        </div>
+
+        <label>Title</label>
+        <input type="text" value="Project Title">
+
+        <label>Description</label>
+        <textarea rows="3">Description of the functional and non-functional features of the project.</textarea>
+
+        <label>Preview URL</label>
+        <input type="text" value="https://example.com/website">
+
+        <label>Repository URL</label>
+        <input type="text" value="https://example.com/repo">
+
+        <div class="tags-row" style="display:flex; flex-direction:row; align-items:center; justify-content:space-between; padding:0; margin-bottom:15px;">
+            <span>Tags</span>
+            <span class="add-tag-btn">＋ Add</span>
+        </div>
+
+        <div class="tags-list">
+                ${createTagItem("Tag 1")}
+                ${createTagItem("Tag 2")}
+                ${createTagItem("Tag 3")}
+        </div>
+       
+    `;
+
+    container.appendChild(card);
+}
+
+document.addEventListener("input", function (e) {
+    const card = e.target.closest(".project-card");
+    if (!card) return;
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let projects = data.sections.projects.items
+    const index = Number(card.dataset.index);
+    const proj = projects[index];
+
+    if (e.target.matches(".project-card > input[type='text']:nth-of-type(1)")) {
+        proj.title = e.target.value.trim();
+        const headerSpan = card.querySelector(".project-header span");
+        if (headerSpan) headerSpan.textContent = e.target.value.trim();
+    }
+    if (e.target.matches("textarea")) {
+        proj.description = e.target.value.trim();
+    }
+    if (e.target.matches(".project-card > input[type='text']:nth-of-type(2)")) {
+        proj.previewUrl = e.target.value.trim();
+    }
+    if (e.target.matches(".project-card > input[type='text']:nth-of-type(3)")) {
+        proj.repoUrl = e.target.value.trim();
+    }
+
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+});
+
+
+function createTagItem(name = "New Tag") {
+    return `
+        <div class="tag-item" style="padding-left:0; padding-right:0; display:flex; flex-direction:row; gap:7px; align-items:center; justify-content:space-between; margin-bottom:10px;">
+            <input type="text" value="${escapeHtml(name)}" style="margin-top:0; margin-bottom:0; flex:1; min-width:0;"/>
+            <span class="remove-tag" style="padding:10px; display:flex; justify-content:center; align-items:center; cursor:pointer; color:#dd524b; border-radius:11px;">
+                <i class="bi bi-x-lg"></i>
+            </span>
+        </div>
+    `;
+}
+
+function escapeHtml(s){
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+document.addEventListener("click", function (e) {
+
+    
+    const delCardBtn = e.target.closest(".delete-card");
+    if (delCardBtn) {
+        const card = delCardBtn.closest(".project-card");
+        const index = Number(card.dataset.index);
+        let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+        let projects = data.sections.projects.items
+        projects.splice(index, 1);
+        sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+        if (card) card.remove();
+        return;
+    }
+
+    const addTagBtn = e.target.closest(".add-tag-btn");
+    if (addTagBtn) {
+        const card = addTagBtn.closest(".project-card");
+        if (!card) return;
+        const list = card.querySelector(".tags-list");
+        if (!list) return;
+        const index = Number(card.dataset.index);
+        let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+        let projects = data.sections.projects.items
+        
+        const tagName = "New Tag";
+        if (tagName === null) return;
+
+        
+        list.insertAdjacentHTML("beforeend", createTagItem(tagName.trim() || "New Tag"));
+        projects[index].tags.push(tagName);  
+        sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+        return;
+    }
+
+  
+    const removeTagBtn = e.target.closest(".remove-tag");
+    if (removeTagBtn) {
+        const tagItem = removeTagBtn.closest(".tag-item");
+        const card = removeTagBtn.closest(".project-card");
+        const index = Number(card.dataset.index);
+
+        const tagIndex = [...card.querySelectorAll(".tag-item")].indexOf(tagItem);
+        let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+        let projects = data.sections.projects.items
+        projects[index].tags.splice(tagIndex, 1); 
+        sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+        if (tagItem) tagItem.remove();
+        return;
+    }
+});
+
+document.addEventListener("input", function (e) {
+    if (!e.target.closest(".tag-item")) return;
+
+    const card = e.target.closest(".project-card");
+    if (!card) return;
+
+    const index = Number(card.dataset.index);
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let projects = data.sections.projects.items
+    const proj = projects[index];
+
+    const tagInputs = [...card.querySelectorAll(".tag-item input")];
+    proj.tags = tagInputs.map(input => input.value.trim());
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+    
+});
+
+
+
+document.addEventListener("input", function (e) {
+    const card = e.target.closest(".experience-card");
+    if (!card) return;
+
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let exp = data.sections.experience.items;
+    const index = Number(card.dataset.index);
+    const item = exp[index];
+
+ 
+    const inputs = card.querySelectorAll("input");
+    const textarea = card.querySelector("textarea");
+
+    
+    if (e.target === inputs[0]) {
+        item.company = e.target.value.trim();
+        card.querySelector(".experience-header span").textContent = item.company;
+    }
+
+   
+    if (e.target === inputs[1]) {
+        item.role = e.target.value.trim();
+    }
+
+    
+    if (e.target === inputs[2]) {
+        item.period = e.target.value.trim();
+    }
+
+   
+    if (e.target === textarea) {
+        item.description = e.target.value.trim();
+    }
+
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+});
+
+
+
+function addExperience() {
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let exp = data.sections.experience.items;
+
+    exp.push({
+        company: "New Company",
+        role: "Position Title",
+        period: "MM/YYYY-Present",
+        description: "Description of your role and responsibilities.."
+    });
+
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+
+    renderExperience(); 
+}
+
+
+document.addEventListener("click", function (e) {
+
+    
+    const delCardBtn = e.target.closest(".delete-card");
+    if (delCardBtn) {
+        const card = delCardBtn.closest(".experience-card");
+        if (!card) return;
+
+        let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+        let exp = data.sections.experience.items;
+
+        const index = Number(card.dataset.index);
+
+        
+        exp.splice(index, 1);
+
+      
+        sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+
+   
+        renderExperience();
+
+        return;
+
+    }
+});
+
+
+function renderExperience() {
+    const container = document.getElementById("sec-experience");
+
+   
+    container.querySelectorAll(".experience-card").forEach(el => el.remove());
+
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let exp = data.sections.experience.items;
+
+    exp.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "experience-card";
+        card.dataset.index = index;
+
+        card.innerHTML = `
+            <div class="experience-header" style="padding-left:0;">
+                <span>${item.company}</span>
+                <span class="delete-card"><i class="bi bi-trash"></i></span>
+            </div>
+
+            <label>Company</label>
+            <input type="text" value="${item.company}">
+
+            <label>Position</label>
+            <input type="text" value="${item.role}">
+
+            <label>Period</label>
+            <input type="text" value="${item.period}">
+
+            <label>Description</label>
+            <textarea rows="3">${item.description}</textarea>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+
+renderExperience()
+
+
+
+document.addEventListener("input", function (e) {
+    const card = e.target.closest(".education-card");
+    if (!card) return;
+
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let edu = data.sections.education.items;
+    const index = Number(card.dataset.index);
+    const item = edu[index];
+
+    const inputs = card.querySelectorAll("input");
+
+    
+    if (e.target === inputs[0]) {
+        item.institution = e.target.value.trim();
+        card.querySelector(".education-header span").textContent = item.institution;
+    }
+
+    
+    if (e.target === inputs[1]) {
+        item.degree = e.target.value.trim();
+    }
+
+    
+    if (e.target === inputs[2]) {
+        item.period = e.target.value.trim();
+    }
+
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+});
+
+function addEducation() {
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let edu = data.sections.education.items;
+
+    edu.push({
+        institution: "New Institution",
+        degree: "Degree Title",
+        period: "YYYY-YYYY"
+    });
+
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+
+    renderEducation();  
+}
+
+
+document.addEventListener("click", function (e) {
+
+
+    const delCardBtn = e.target.closest(".delete-card");
+    if (delCardBtn) {
+        const card = delCardBtn.closest(".education-card");
+        if (!card) return;
+
+        let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+        let edu = data.sections.education.items;
+
+        const index = Number(card.dataset.index);
+        edu.splice(index, 1);
+
+        sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+
+        renderEducation();  
+        return;
+    }
+});
+
+function renderEducation() {
+    const container = document.getElementById("sec-education");
+
+    
+    container.querySelectorAll(".education-card").forEach(el => el.remove());
+
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let edu = data.sections.education.items;
+
+    edu.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "education-card";
+        card.dataset.index = index;
+
+        card.innerHTML = `
+            <div class="education-header" style="padding-left:0;">
+                <span>${item.institution}</span>
+                <span class="delete-card"><i class="bi bi-trash"></i></span>
+            </div>
+
+            <label>Institution</label>
+            <input type="text" value="${item.institution}">
+
+            <label>Degree</label>
+            <input type="text" value="${item.degree}">
+
+            <label>Period</label>
+            <input type="text" value="${item.period}">
+        `;
+
+        container.appendChild(card);
+    });
+}
+renderEducation()
+
+
+function renderProjects() {
+    const container = document.getElementById("sec-projects");
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let projects = data.sections.projects.items;
+
+   
+    container.querySelectorAll(".project-card").forEach(el => el.remove());
+
+
+    projects.forEach((p, index) => {
+        const card = document.createElement("div");
+        card.className = "project-card";
+        card.dataset.index = index;
+
+        card.innerHTML = `
+            <div class="project-header" style="padding-left:0;">
+                <span>${p.title}</span>
+                <span class="delete-card"><i class="bi bi-trash"></i></span>
+            </div>
+
+            <label>Title</label>
+            <input type="text" value="${p.title}">
+
+            <label>Description</label>
+            <textarea rows="3">${p.description}</textarea>
+
+            <label>Preview URL</label>
+            <input type="text" value="${p.previewUrl}">
+
+            <label>Repository URL</label>
+            <input type="text" value="${p.repoUrl}">
+
+            <div class="tags-row" style="display:flex; flex-direction:row; align-items:center; justify-content:space-between; padding:0; margin-bottom:15px;">
+                <span>Tags</span>
+                <span class="add-tag-btn">＋ Add</span>
+            </div>
+
+            <div class="tags-list">
+                ${p.tags.map(t => createTagItem(t)).join("")}
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+
+
+document.addEventListener("input", function (e) {
+    const card = e.target.closest(".achievement-card");
+    if (!card) return;
+
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let achievements = data.sections.achievements.items;
+    const index = Number(card.dataset.index);
+    const item = achievements[index];
+
+    const inputs = card.querySelectorAll("input");
+    const textarea = card.querySelector("textarea");
+
+    
+    if (e.target === inputs[0]) {
+        item.title = e.target.value.trim();
+        card.querySelector(".achievement-header span").textContent = item.title;
+    }
+
+    
+    if (e.target === textarea) {
+        item.description = e.target.value.trim();
+    }
+
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+});
+
+
+function addAchievement() {
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let achievements = data.sections.achievements.items;
+
+    achievements.push({
+        title: "New Achievement",
+        description: "Description of your achievement"
+    });
+
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+
+    renderAchievements(); 
+}
+document.addEventListener("click", function (e) {
+    const delCardBtn = e.target.closest(".delete-card");
+    if (!delCardBtn) return;
+
+    const card = delCardBtn.closest(".achievement-card");
+    if (!card) return; 
+
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let achievements = data.sections.achievements.items;
+
+    const index = Number(card.dataset.index);
+
+   
+    achievements.splice(index, 1);
+
+    
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+
+  
+    renderAchievements();
+
+    return;
+});
+
+function renderAchievements() {
+    const container = document.getElementById("sec-achievements");
+
+    container.querySelectorAll(".achievement-card").forEach(el => el.remove());
+
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let achievements = data.sections.achievements.items;
+
+    achievements.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "achievement-card";
+        card.dataset.index = index;
+
+        card.innerHTML = `
+            <div class="achievement-header" style="padding-left:0;">
+                <span>${item.title}</span>
+                <span class="delete-card"><i class="bi bi-trash"></i></span>
+            </div>
+
+            <label>Title</label>
+            <input type="text" value="${item.title}">
+
+            <label>Description</label>
+            <textarea rows="3">${item.description}</textarea>
+        `;
+
+        container.appendChild(card);
+    });
+}
+renderAchievements()
+
+
+document.addEventListener("click", function (e) {
+
+    
+    const delCardBtn = e.target.closest(".delete-card");
+    if (delCardBtn) {
+        const card = delCardBtn.closest(".achievement-card");
+        renderProjects(); 
+        return; 
+    }
+});
+
+
+
+function addSocial() {
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let socials = data.sections.social.items;
+
+    socials.push({
+        platform: "New Platform",
+        url: "https://social.com/user"
+    });
+
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+
+   
+    renderSocial();
+}
+function renderSocial() {
+    const container = document.getElementById("sec-contact");
+
+  
+    container.querySelectorAll(".social-card").forEach(el => el.remove());
+
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let socials = data.sections.social.items;
+
+    socials.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "social-card";
+        card.dataset.index = index;
+
+        card.innerHTML = `
+            <div class="social-header" style="padding-left:0;">
+                <span>${item.platform}</span>
+                <span class="delete-card"><i class="bi bi-trash"></i></span>
+            </div>
+
+            <label>Platform</label>
+            <input type="text" value="${item.platform}">
+
+            <label>URL</label>
+            <input type="text" value="${item.url}">
+        `;
+
+        container.appendChild(card);
+    });
+}
+renderSocial();
+document.addEventListener("input", function (e) {
+    const card = e.target.closest(".social-card");
+    if (!card) return;
+
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let socials = data.sections.social.items;
+    const index = Number(card.dataset.index);
+    const item = socials[index];
+
+    const inputs = card.querySelectorAll("input");
+
+
+    if (e.target === inputs[0]) {
+        item.platform = e.target.value.trim();
+        card.querySelector(".social-header span").textContent = item.platform;
+    }
+
+    
+    if (e.target === inputs[1]) {
+        item.url = e.target.value.trim();
+    }
+
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+});
+document.addEventListener("click", function (e) {
+    const delBtn = e.target.closest(".delete-card");
+    if (!delBtn) return;
+
+    const card = delBtn.closest(".social-card");
+    if (!card) return; 
+
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    let socials = data.sections.social.items;
+
+    const index = Number(card.dataset.index);
+
+ 
+    socials.splice(index, 1);
+
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+
+   
+    renderSocial();
+});
+
+const toggleMap = {
+    togglepersonalinfo: "sections.hero.enabled",
+    toggleskills: "sections.about.enabled",
+    toggleexperience: "sections.experience.enabled",
+    toggleprojects: "sections.projects.enabled",
+    toggleeducation: "sections.education.enabled",
+    toggleachievement: "sections.achievements.enabled",
+    togglecontact: "sections.contact.enabled",
+    togglesocial: "sections.social.enabled"
+};
+function getValueFromPath(obj, path) {
+    return path.split(".").reduce((o, k) => o?.[k], obj);
+}
+function initializeToggles() {
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+
+    document.querySelectorAll(".toggle-input").forEach(toggle => {
+        const row = toggle.closest(".toggle-row");
+        const label = row.querySelector(".toggle-label");
+        const id = label.id;
+
+        const path = toggleMap[id];
+        if (!path) return;
+
+        const value = getValueFromPath(data, path);
+        toggle.checked = Boolean(value);
+    });
+}
+initializeToggles();
+document.addEventListener("change", function (e) {
+    if (!e.target.classList.contains("toggle-input")) return;
+
+    const toggle = e.target;
+    const isOn = toggle.checked;
+
+    const row = toggle.closest(".toggle-row");
+    const label = row.querySelector(".toggle-label");
+    const id = label.id;
+
+    const path = toggleMap[id];
+    if (!path) return;
+
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+
+   
+    const keys = path.split(".");
+    let current = data;
+
+    for (let i = 0; i < keys.length - 1; i++) {
+        current = current[keys[i]];
+    }
+    current[keys[keys.length - 1]] = isOn;
+
+    sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+
+    console.log("Updated:", id, "=>", isOn);
+});
+const CTA_LIMIT = 2;
+function renderCTAs() {
+  const container = document.getElementById("ctaContainer");
+  container.innerHTML = "";
+
+  let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+  const ctas = data.sections.hero.ctaButtons || [];
+
+  ctas.forEach((cta, index) => {
+    const div = document.createElement("div");
+    div.className = "ctabtn";
+    div.dataset.index = index;
+
+    div.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:15px;">
+        <strong>Button ${index + 1}</strong>
+        <span class="delete-cta" style="cursor:pointer; color:#dd524b;">
+          <i class="bi bi-trash"></i>
+        </span>
+      </div>
+
+      <div class="cta-row-acc">
+        <div class="cta-row">
+          <label>Button text</label>
+          <input type="text" value="${cta.text}">
+        </div>
+
+        <div class="cta-row">
+          <label>URL</label>
+          <input type="text" value="${cta.url}">
+        </div>
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
+
+  document.getElementById("addCtaBtn").disabled = ctas.length >= CTA_LIMIT;
+}
+document.getElementById("addCtaBtn").addEventListener("click", () => {
+  let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+  data.sections.hero.ctaButtons ||= [];
+
+  if (data.sections.hero.ctaButtons.length >= CTA_LIMIT) return;
+
+  data.sections.hero.ctaButtons.push({
+    text: "New Button",
+    url: "https://example.com"
+  });
+
+  sessionStorage.setItem("portfolioData", JSON.stringify(data));
+  renderCTAs();
+  updatePreview();
+});
+document.addEventListener("input", (e) => {
+  const card = e.target.closest(".ctabtn");
+  if (!card) return;
+
+  let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+  const index = Number(card.dataset.index);
+  const inputs = card.querySelectorAll("input");
+
+  data.sections.hero.ctaButtons[index].text = inputs[0].value.trim();
+  data.sections.hero.ctaButtons[index].url = inputs[1].value.trim();
+
+  sessionStorage.setItem("portfolioData", JSON.stringify(data));
+  updatePreview();
+});
+
+document.addEventListener("click", (e) => {
+  const del = e.target.closest(".delete-cta");
+  if (!del) return;
+
+  const card = del.closest(".ctabtn");
+  const index = Number(card.dataset.index);
+
+  let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+  data.sections.hero.ctaButtons.splice(index, 1);
+
+  sessionStorage.setItem("portfolioData", JSON.stringify(data));
+  renderCTAs();
+  updatePreview();
+});
+
+function initialUpdate(){
+    let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+    document.getElementById('personalInfoName').value = data.settings.name
+    document.getElementById('personalInfoTitle').value = data.settings.title
+    document.getElementById('personalInfoLocation').value = data.settings.location
+    document.getElementById('personalInfoSummary').value = data.settings.summary
+    document.getElementById('personalInfoURL').value = data.settings.profileImage
+    document.getElementById('skillsTitle').value = data.sections.about.skills.title
+    document.getElementById('projectTitle').value = data.sections.projects.title
+    document.getElementById('experienceTitle').value = data.sections.experience.title
+    document.getElementById('educationTitle').value = data.sections.education.title
+    document.getElementById('achievementTitle').value = data.sections.achievements.title
+    document.getElementById('contactTitle').value = data.sections.contact.title
+    document.getElementById('contactEmail').value = data.sections.contact.email
+    document.getElementById('contactPhone').value = data.sections.contact.phone
+    document.getElementById('contactLocation').value = data.sections.contact.location
+    document.getElementById("footerCopyright").value = data.footer.copyright;
+    let skillsArr = data.sections.about.skills.items
+    for(i = 0;i<skillsArr.length;i++){
+      if(skillsArr[i] == "Deleted") continue
+      const row = document.createElement("div");
+      row.className = "form-row";
+      row.style.display = "flex";
+      row.style.flexDirection = "row";
+      row.style.gap = "7px";
+      let s = 'skillNumber'+totalskillscnt
+      totalskillscnt++
+      row.innerHTML = `
+          <input id="${s}" type="text" value="${skillsArr[i]}">
+          <span class="remove-btn" style="padding: 10px; display: flex; justify-content: center; align-items: center; cursor: pointer; color: #dd524b; border-radius: 11px;">
+              <i class="bi bi-x-lg"></i>
+          </span>
+      `;
+      skillscontainer.appendChild(row);
+    }
+    let projects = data.sections.projects.items;
+    const container = document.getElementById("sec-projects");
+
+   
+
+    projects.forEach((p, index) => {
+        const card = document.createElement("div");
+        card.className = "project-card";
+        card.dataset.index = index; 
+
+        card.innerHTML = `
+            <div class="project-header" style="padding-left:0;">
+                <span>${p.title}</span>
+                <span class="delete-card"><i class="bi bi-trash"></i></span>
+            </div>
+
+            <label>Title</label>
+            <input type="text" value="${p.title}">
+
+            <label>Description</label>
+            <textarea rows="3">${p.description}</textarea>
+
+            <label>Preview URL</label>
+            <input type="text" value="${p.previewUrl}">
+
+            <label>Repository URL</label>
+            <input type="text" value="${p.repoUrl}">
+
+            <div class="tags-row" style="display:flex; flex-direction:row; align-items:center; justify-content:space-between; padding:0; margin-bottom:15px;">
+                <span>Tags</span>
+                <span class="add-tag-btn">＋ Add</span>
+            </div>
+
+            <div class="tags-list">
+                ${p.tags.map(t => createTagItem(t)).join("")}
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+    renderCTAs()
+
+}
+
+initialUpdate()
+updatePreview()
+let typingTimer;
+document.addEventListener("input", function (e) {
+    if (!["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
+
+
+    clearTimeout(typingTimer);
+
+    typingTimer = setTimeout(() => {
+        const id = e.target.id
+        const newval = e.target.value
+        let data = JSON.parse(sessionStorage.getItem("portfolioData"));
+        if(id == 'personalInfoName') data.settings.name = newval
+        if(id == 'personalInfoTitle') data.settings.title = newval
+        if(id == 'personalInfoSummary') data.settings.summary = newval
+        if(id == 'personalInfoURL') data.settings.profileImage = newval
+        if(id == 'personalInfoLocation') data.settings.location = newval
+
+        if(id == 'skillsTitle') data.sections.about.skills.title = newval
+        if(id == 'projectTitle') data.sections.projects.title = newval
+        if(id == 'experienceTitle') data.sections.experience.title = newval
+        if(id == 'achievementTitle') data.sections.achievements.title = newval
+        if(id == 'educationTitle') data.sections.education.title = newval
+        if(id == 'contactTitle') data.sections.contact.title = newval
+        if(id == 'contactEmail') data.sections.contact.email = newval
+        if(id == 'contactPhone') data.sections.contact.phone = newval
+        if(id == 'contactLocation') data.sections.contact.location = newval
+        if (id === "footerCopyright") {
+            data.footer.copyright = newval;
+        }
+        let str = id; 
+        let text = str.replace(/\d+$/, "");  
+        
+        if(text == "skillNumber"){
+          let number = Number(str.match(/\d+$/)[0]); 
+          data.sections.about.skills.items[number] = newval
+        }
+        sessionStorage.setItem("portfolioData", JSON.stringify(data)); updatePreview() 
+    }, 300);  
+    
+});
+document.getElementById("buildBtn").onclick = async () => {
+ 
+  const portfolioData = JSON.parse(
+    sessionStorage.getItem("portfolioData")
+  );
+
+  const res = await fetch("/build", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ portfolioData })
+  });
+
+  const data = await res.json();
+
+  // alert("Build link copied!");
+  navigator.clipboard.writeText(data.url);
+  openAlert()
+};
+function openAlert() {
+  document.getElementById("overlay").classList.remove("hidden");
+}
+
+function closeAlert() {
+  document.getElementById("overlay").classList.add("hidden");
+}
+
+</script>
+
+</body>
+</html>

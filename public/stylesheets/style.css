@@ -1,0 +1,349 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Satoshi', sans-serif;
+            background: #151719;
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        
+        nav {
+            border-bottom: 1px solid #1f1f1f;
+            padding: 1.5rem 4.5rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 25px;
+            height: 25px;
+            background: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: black;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.13rem;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .warning {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .warning svg{
+            color: white;
+        }
+       
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(234, 179, 8, 0.1);
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            border-radius: 50px;
+            color: #eab308;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-small {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(100, 100, 100, 0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            color: white;
+            border: 1px solid #ffffff42;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: white;
+            margin-top: 0.8rem;
+            margin-bottom: 0rem;
+            margin-left: 0rem;
+            margin-right: 0rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #909090;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            margin-top: 0.8rem;
+        }
+
+        
+        .upload-box {
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            padding: 3rem;
+            border: 2px dashed #514f4f;
+            border-radius: 12px;
+            background: #212325;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 1rem;
+        }
+
+        .upload-box:hover {
+            border-color: #555;
+            background: #212325de;
+        }
+
+        .upload-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1rem;
+            background: rgba(100, 100, 100, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .upload-text {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-subtext {
+            color: #707070;
+            font-size: 0.9rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.6rem 2rem;
+            background: rgb(233, 220, 220);
+            color: #151719;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 500px;
+            cursor: pointer;
+            font-family: Satoshi;
+            outline: none;
+            border: none;
+        }
+
+        .cta-button:hover {
+            background: rgb(233, 220, 220,0.7);
+        }
+        .disabled-btn {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        .section {
+            max-width: 1400px;
+            margin: 12rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-icon {
+            
+            margin: 0 auto 1rem;
+            background: rgba(100, 100, 100, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: #808080;
+            font-size: 1.1rem;
+        }
+
+       
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #212325;
+            border: 1px solid #1f1f1f;
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            border: 0.5px solid rgba(255, 255, 255, 0.158);
+            
+        }
+
+       
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            
+        }
+        .feature-icon svg{
+            width: 20px;
+            height: 20px;
+        }
+        .icon-blue { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .icon-purple { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
+        .icon-green { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .icon-orange { background: rgba(249, 115, 22, 0.2); color: #f97316; }
+        .icon-amber { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+
+        .feature-card h3 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: #808080;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+       
+        footer {
+            max-width: 1400px;
+            margin: 6rem auto 0;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid #1f1f1f;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1.5rem;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 3px;
+        }
+
+        .footer-text {
+            color: #808080;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: #808080;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: #606060;
+            font-size: 0.9rem;
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+   

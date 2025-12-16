@@ -1,0 +1,49 @@
+<div class="preview-wrapper">
+
+ 
+  <section class="hero">
+      <img id="previewImg" 
+           src="<%= data?.settings?.profileImage || 'https://via.placeholder.com/150' %>" 
+           alt="Profile Image"
+           class="profile-img">
+
+      <h1 id="previewName"><%= data?.settings?.name || "Your Name" %></h1>
+      <h3 id="previewTitle"><%= data?.settings?.title || "Your Title" %></h3>
+      <p id="previewLocation"><%= data?.settings?.location || "Your Location" %></p>
+      <p id="previewSummary"><%= data?.settings?.summary || "Your professional summary will appear here." %></p>
+
+      <div class="cta-buttons">
+          <% (data?.sections?.hero?.ctaButtons || []).forEach(btn => { %>
+            <a href="<%= btn.url %>" class="cta-button"><%= btn.text %></a>
+          <% }) %>
+      </div>
+  </section>
+
+  
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <% (data?.sections?.about?.skills?.items || []).forEach(skill => { %>
+        <li><%= skill %></li>
+      <% }) %>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>Projects</h2>
+    <% (data?.sections?.projects?.items || []).forEach(p => { %>
+      <div class="project-card">
+        <h3><%= p.title %></h3>
+        <p><%= p.description %></p>
+
+        <div class="tags">
+          <% (p.tags || []).forEach(tag => { %>
+            <span class="tag"><%= tag %></span>
+          <% }) %>
+        </div>
+      </div>
+    <% }) %>
+  </section>
+
+</div>

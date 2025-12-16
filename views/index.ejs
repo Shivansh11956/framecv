@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrameCV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901,1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="\stylesheets\style.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 375 375" aria-label="FrameCV logo" class=""><defs><clipPath id="logo-clip-1"><path d="M 12.816406 22.734375 L 362 22.734375 L 362 352.265625 L 12.816406 352.265625 Z M 12.816406 22.734375 "></path></clipPath><clipPath id="logo-clip-2"><path d="M 84.816406 22.734375 L 290.183594 22.734375 C 329.949219 22.734375 362.183594 54.96875 362.183594 94.734375 L 362.183594 280.265625 C 362.183594 320.03125 329.949219 352.265625 290.183594 352.265625 L 84.816406 352.265625 C 45.050781 352.265625 12.816406 320.03125 12.816406 280.265625 L 12.816406 94.734375 C 12.816406 54.96875 45.050781 22.734375 84.816406 22.734375 Z M 84.816406 22.734375 "></path></clipPath><clipPath id="logo-clip-3"><path d="M 124 79.046875 L 291.613281 79.046875 L 291.613281 152 L 124 152 Z M 124 79.046875 "></path></clipPath><clipPath id="logo-clip-4"><path d="M 83.113281 151 L 209 151 L 209 224 L 83.113281 224 Z M 83.113281 151 "></path></clipPath><clipPath id="logo-clip-5"><path d="M 83.113281 223 L 167 223 L 167 295.796875 L 83.113281 295.796875 Z M 83.113281 223 "></path></clipPath></defs><g><g clip-path="url(#logo-clip-1)"><g clip-path="url(#logo-clip-2)"><path d="M 12.816406 22.734375 L 361.660156 22.734375 L 361.660156 352.265625 L 12.816406 352.265625 Z M 12.816406 22.734375 " style="fill: rgb(250, 250, 250);"></path></g></g><g clip-path="url(#logo-clip-3)"><path d="M 143.753906 79.046875 L 124.828125 79.046875 L 166.519531 151.253906 L 249.898438 151.253906 L 291.589844 79.046875 Z M 143.753906 79.046875 " style="fill: rgb(23, 23, 23);"></path></g><g clip-path="url(#logo-clip-4)"><path d="M 124.828125 223.464844 L 208.210938 223.464844 L 166.515625 151.257812 L 83.136719 151.257812 Z M 124.828125 223.464844 " style="fill: rgb(23, 23, 23);"></path></g><g clip-path="url(#logo-clip-5)"><path d="M 166.515625 295.675781 L 124.828125 223.464844 L 83.136719 295.675781 Z M 166.515625 295.675781 " style="fill: rgb(23, 23, 23);"></path></g></g></svg>
+                </div>
+                <span class="logo-text">FrameCV</span>
+            </div>
+            <div class="nav-links">
+                <!-- <a href="#">About</a> -->
+                <!-- <a href="#">Contact</a> -->
+                <a target="_blank" href="https://forms.gle/8nNTFaWN6NaUVc9S6" class="warning">
+                    
+                    Report an issue
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/in/shivanshsri301/">in</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <section class="hero">
+        <!-- <div class="status-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            Resume to portfolio in seconds
+        </div> -->
+        <br>
+        <div class="badge-small">
+            ✨ Fast. Free. Forever.
+        </div>
+
+        <h1>Turn Your Resume into a Portfolio in seconds</h1>
+        <p class="subtitle">Showcase your resume with a beautifully generated portfolio, because your journey deserves more than a resume.</p>
+
+        <form id="uploadForm" action="/parse-resume" method="POST" enctype="multipart/form-data">
+
+            <div class="upload-box" id="uploadBox">
+                <input type="file" id="fileInput" accept="application/pdf" name="resume" style="display:none;">
+                
+                <div class="upload-icon"><i class="bi bi-upload"></i></div>
+                <div class="upload-text">Drop your resume here</div>
+                <div class="upload-subtext">Supported File Types: PDF</div>
+                <div id="fileName" class="file-name"></div>
+            </div>
+
+            <button id="createBtn" disabled class="cta-button disabled-btn">Create My Portfolio Now →</button>
+
+        </form>
+
+        <!-- <a href="#" class="cta-button">Create My Portfolio Now →</a> -->
+
+        <!-- <div>
+            <span style="color: rgba(255, 255, 255, 0.651); margin-top: 2rem; ">
+                    Don't have a resume? No problem!
+            </span>
+            <br>
+            <span onclick="window.location.href='/builder/manual'" style="cursor: pointer; color: white; text-decoration: underline;">    
+                Create portfolio manually instead →
+            </span>
+        </div> -->
+    </section>
+
+   
+    <section class="section" style="margin-top: 4rem;">
+        <div class="section-header">
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <span style="display: flex; align-items: center; justify-content: center; height: 40px; width: 40px; background-color: #2d2f30; border-radius: 50%;">
+                    <svg style="color: white;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m8.66-15.66l-4.24 4.24m-4.24 4.24l-4.24 4.24M23 12h-6m-6 0H1m18.66 8.66l-4.24-4.24m-4.24-4.24l-4.24-4.24"></path>
+                    </svg>
+                </span>
+                <span style="margin-left: 10px; font-size: 2rem; color: white;">
+                        How it Works
+                </span>
+            </div>
+            <div style="font-size: 1.1rem;">
+                Transform your resume into a professional portfolio in four simple steps
+            </div>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon icon-blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                </div>
+                <h3>Upload Your Resume</h3>
+                <p>Upload your PDF resume. Our system instantly extracts your skills, experience, and projects-no manual work.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-purple">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <h3>AI Builds Your Portfolio</h3>
+                <p>Our AI transforms your content into a modern, responsive portfolio-structured, styled, and ready to shine.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                </div>
+                <h3>Live-Edit Your Details</h3>
+                <p>Tweak text, update links, or swap sections. See changes in real-time with a live preview that updates as you type.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-orange">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </div>
+                <h3>Publish</h3>
+                <p>Deploy with one click, or download the full source code and host it anywhere. You're in control.</p>
+            </div>
+        </div>
+    </section>
+
+  
+    <section class="section">
+        <div class="section-header">
+            <h2>Why should someone have a portfolio?</h2>
+            <p class="section-subtitle">"In today's crowded job market, a portfolio isn't optional — it's your edge."</p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon icon-amber">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <h3>Stand Out Instantly</h3>
+                <p>A portfolio showcases your work before anyone asks. It's visual, memorable, and shows you're serious.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </div>
+                <h3>Show, Don't Just Tell</h3>
+                <p>Highlight projects, skills, and personal flair in a way a PDF never could. Your work deserves more than bullet points.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                <h3>Own Your Online Presence</h3>
+                <p>Having your own link makes sharing easy—and helps recruiters or collaborators find you faster.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-purple">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <h3>Future-Proof Your Career</h3>
+                <p>Whether it's job hunts, freelance gigs, or speaking opportunities—your portfolio keeps working even when you're not.</p>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="section">
+        <div class="section-header">
+            <h2>What You Get</h2>
+            <p class="section-subtitle">Everything you need to turn your resume into a standout digital presence.</p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon icon-green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                <h3>Responsive by Default</h3>
+                <p>Fits perfectly on mobile, tablet, and desktop - no extra setup needed.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-purple">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <h3>SEO-Ready Out of the Box</h3>
+                <p>Get discovered faster with clean, optimized code built for search engines.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-orange">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </div>
+                <h3>1-Click GitHub Deploy</h3>
+                <p>Publish instantly on our domain.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </div>
+                <h3>Source Code Included</h3>
+                <p>Download the full codebase - tweak, host, or scale however you like.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-purple">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m8.66-15.66l-4.24 4.24m-4.24 4.24l-4.24 4.24M23 12h-6m-6 0H1m18.66 8.66l-4.24-4.24m-4.24-4.24l-4.24-4.24"></path>
+                    </svg>
+                </div>
+                <h3>Visual Customization</h3>
+                <p>Edit fonts, colors, layout, and content - no code required.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                    </svg>
+                </div>
+                <h3>Blazing Fast Performance</h3>
+                <p>Built with modern frameworks for speed, smoothness, and impact.</p>
+            </div>
+        </div>
+    </section>
+
+  
+    <footer>
+        <div class="footer-logo">
+            <div style=" font-weight: bold; color: black;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 375 375" aria-label="FrameCV logo" class=""><defs><clipPath id="logo-clip-1"><path d="M 12.816406 22.734375 L 362 22.734375 L 362 352.265625 L 12.816406 352.265625 Z M 12.816406 22.734375 "></path></clipPath><clipPath id="logo-clip-2"><path d="M 84.816406 22.734375 L 290.183594 22.734375 C 329.949219 22.734375 362.183594 54.96875 362.183594 94.734375 L 362.183594 280.265625 C 362.183594 320.03125 329.949219 352.265625 290.183594 352.265625 L 84.816406 352.265625 C 45.050781 352.265625 12.816406 320.03125 12.816406 280.265625 L 12.816406 94.734375 C 12.816406 54.96875 45.050781 22.734375 84.816406 22.734375 Z M 84.816406 22.734375 "></path></clipPath><clipPath id="logo-clip-3"><path d="M 124 79.046875 L 291.613281 79.046875 L 291.613281 152 L 124 152 Z M 124 79.046875 "></path></clipPath><clipPath id="logo-clip-4"><path d="M 83.113281 151 L 209 151 L 209 224 L 83.113281 224 Z M 83.113281 151 "></path></clipPath><clipPath id="logo-clip-5"><path d="M 83.113281 223 L 167 223 L 167 295.796875 L 83.113281 295.796875 Z M 83.113281 223 "></path></clipPath></defs><g><g clip-path="url(#logo-clip-1)"><g clip-path="url(#logo-clip-2)"><path d="M 12.816406 22.734375 L 361.660156 22.734375 L 361.660156 352.265625 L 12.816406 352.265625 Z M 12.816406 22.734375 " style="fill: rgb(250, 250, 250);"></path></g></g><g clip-path="url(#logo-clip-3)"><path d="M 143.753906 79.046875 L 124.828125 79.046875 L 166.519531 151.253906 L 249.898438 151.253906 L 291.589844 79.046875 Z M 143.753906 79.046875 " style="fill: rgb(23, 23, 23);"></path></g><g clip-path="url(#logo-clip-4)"><path d="M 124.828125 223.464844 L 208.210938 223.464844 L 166.515625 151.257812 L 83.136719 151.257812 Z M 124.828125 223.464844 " style="fill: rgb(23, 23, 23);"></path></g><g clip-path="url(#logo-clip-5)"><path d="M 166.515625 295.675781 L 124.828125 223.464844 L 83.136719 295.675781 Z M 166.515625 295.675781 " style="fill: rgb(23, 23, 23);"></path></g></g></svg>
+            </div>
+        </div>
+        <p class="footer-text">Transform your resume into a stunning portfolio website in minutes. AI-powered, developer-friendly, completely free.</p>
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+        </div>
+        <p class="copyright">© 2025 FrameCV. All rights reserved.</p>
+    </footer>
+    <script>
+        
+        const uploadBox = document.getElementById('uploadBox');
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+
+      
+        uploadBox.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+       
+        fileInput.addEventListener('change', (e) => {
+            handleFile(e.target.files[0]);
+        });
+
+      
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            uploadBox.addEventListener(eventName, preventDefaults, false);
+            document.body.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        
+        ['dragenter', 'dragover'].forEach(eventName => {
+            uploadBox.addEventListener(eventName, () => {
+                uploadBox.classList.add('drag-over');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            uploadBox.addEventListener(eventName, () => {
+                uploadBox.classList.remove('drag-over');
+            }, false);
+        });
+
+        
+        uploadBox.addEventListener('drop', (e) => {
+            const files = e.dataTransfer.files;
+            handleFile(files[0]);
+        });
+
+        
+        function handleFile(file) {
+            if (!file){
+                createBtn.disabled = true;
+                createBtn.classList.add("disabled-btn");
+                return;
+            }
+
+            
+            if (file.type !== 'application/pdf') {
+                alert('Please upload a PDF file');
+                fileInput.value = ""; 
+                createBtn.disabled = true;
+                createBtn.classList.add("disabled-btn");
+                return;
+            }
+
+           
+            if (file.size > 10 * 1024 * 1024) {
+                alert('File size must be less than 10MB');
+                return;
+            }
+            createBtn.disabled = false;
+            createBtn.classList.remove("disabled-btn");
+           
+            fileName.textContent = `✓ ${file.name}`;
+            fileName.classList.add('show');
+            uploadBox.classList.add('file-uploaded');
+
+            
+            console.log('File ready to upload:', file);
+            
+           
+        }
+    </script>
+</body>
+</html>
