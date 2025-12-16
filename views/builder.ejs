@@ -1397,16 +1397,17 @@ document.getElementById("buildBtn").onclick = async () => {
 
   const data = await res.json();
 
-  // alert("Build link copied!");
-  let later = data.url;
+  let later = data.url || "";
 
-  // remove any leading /undefined
+ 
+  later = later.replace(/^undefined/, "");
   later = later.replace(/^\/undefined/, "");
 
-  // ensure absolute URL
-  if (!later.startsWith("http")) {
-    later = window.location.origin + later;
+  if (!later.startsWith("/")) {
+    later = "/" + later;
   }
+
+  later = window.location.origin + later;
 
   buildurl = later;
 
