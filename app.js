@@ -177,7 +177,7 @@ app.post("/parse-resume", upload.single("resume"), async (req, res) => {
       `;
 
 
-    console.log("Sending to Groq...");
+    // console.log("Sending to Groq...");
 
     
     const response = await groq.chat.completions.create({
@@ -206,7 +206,7 @@ app.post("/parse-resume", upload.single("resume"), async (req, res) => {
     req.session.portfolioData = json;
   
 
-    console.log( JSON.stringify(json, null, 2))
+    // console.log( JSON.stringify(json, null, 2))
 
     res.send(`
     <script>

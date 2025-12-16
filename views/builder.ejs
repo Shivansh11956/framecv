@@ -1396,7 +1396,9 @@ document.getElementById("buildBtn").onclick = async () => {
   const data = await res.json();
 
   // alert("Build link copied!");
-  navigator.clipboard.writeText(data.url);
+  const later = 'https://framecv.onrender.com/'
+  later += data.url
+  navigator.clipboard.writeText(later);
   openAlert()
 };
 function openAlert() {
