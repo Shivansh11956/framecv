@@ -1400,10 +1400,12 @@ document.getElementById("buildBtn").onclick = async () => {
   // alert("Build link copied!");
   let later = 'https://framecv.onrender.com/'
   later = data.url
-  buildurl = data.url
+  later = later.replace(/\/undefined(\/|$)/, "/");
+
+  buildurl = later
   // console.log(later)
   console.log(data.url)
-  navigator.clipboard.writeText(data.url);
+  navigator.clipboard.writeText(later);
   openAlert()
 };
 
