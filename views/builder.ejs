@@ -290,6 +290,7 @@
 
     <div class="actions">
       <button onclick="closeAlert()"><i class="bi bi-arrow-left-short"></i> Back to Builder</button>
+      <button id="viewport"><i class="bi bi-arrow-up-right-circle"></i> View Portfolio</button>
     </div>
   </div>
 </div>
@@ -1379,6 +1380,7 @@ document.addEventListener("input", function (e) {
     }, 300);  
     
 });
+let buildurl
 document.getElementById("buildBtn").onclick = async () => {
  
   const portfolioData = JSON.parse(
@@ -1396,11 +1398,17 @@ document.getElementById("buildBtn").onclick = async () => {
   const data = await res.json();
 
   // alert("Build link copied!");
-  const later = 'https://framecv.onrender.com/'
+  let later = 'https://framecv.onrender.com/'
   later += data.url
-  navigator.clipboard.writeText(later);
+  buildurl = data.url
+  // console.log(later)
+  console.log(data.url)
+  navigator.clipboard.writeText(data.url);
   openAlert()
 };
+document.getElementById("viewport").addEventListener("click", () => {
+  window.open(buildurl, "_blank", "noopener,noreferrer");
+});
 function openAlert() {
   document.getElementById("overlay").classList.remove("hidden");
 }
