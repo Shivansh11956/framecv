@@ -181,7 +181,7 @@ app.post("/parse-resume", upload.single("resume"), async (req, res) => {
 
     
     const response = await groq.chat.completions.create({
-        model: "llama-3.1-8b-instant", 
+        model: "openai/gpt-oss-20b", 
         messages: [
             { role: "system", content: "You are a precise JSON extractor." },
             { role: "user", content: prompt }
